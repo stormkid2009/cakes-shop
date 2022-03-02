@@ -1,1 +1,5 @@
-mongodb+srv://stormkid2009:<password>@cluster0.mgiso.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+username:cakeshop
+password:3k6QzgojLkX3ozsz
+dbname:shopDB
+mongodb+srv://cakeshop:3k6QzgojLkX3ozsz@cluster0.mgiso.mongodb.net/shopDB?retryWrites=true&w=majority

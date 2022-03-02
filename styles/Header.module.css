@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    padding: 1rem 0;
+    margin-top: 0;
+    flex: 1;
+   border-bottom: 1px solid #a770b3;
+   justify-content: space-around;
+   align-items: center;
+   color:#fff;
+   list-style-type: none;
+   background-color: #ea339e;
+   
+}
+
+.main a:hover {
+    color:black;
+}
+
+
+

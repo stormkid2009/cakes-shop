@@ -1,17 +1,19 @@
 import Cake from "../../../components/cake";
-import list from "../../../components/list";
+import styles from "../../../styles/Home.module.css";
 
 export default function CakeReview({ cake }) {
   return (
-    <div>
+    <div className={styles.hot}>
       <Cake cake={cake} />
     </div>
   );
 }
 export async function getStaticPaths() {
-  const paths = list.map((cake) => {
+  const response = await fetch("http://localhost:3000/api/cakes");
+  const data = await response.json();
+  const paths = data.map((cake) => {
     return {
-      params: { cakeId: `${cake.name}` },
+      params: { cakeId: cake.name },
     };
   });
   return {
@@ -22,13 +24,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const data = list.filter((cake) => cake.name === params.cakeId);
+  const response = await fetch("http://localhost:3000/api/cakes");
+  const data = await response.json();
+  const list = data.filter((cake) => cake.name === params.cakeId);
+  console.log(list[0]);
 
   return {
     props: {
-      cake: data[0],
+      cake: list[0],
     },
   };
 }
 
-
+CakeReview.layout = "review";
