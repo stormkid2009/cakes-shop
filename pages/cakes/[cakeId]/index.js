@@ -1,7 +1,9 @@
+import { connectToDatabase } from "../../../util/mongodb";
 import Cake from "../../../components/cake";
 import styles from "../../../styles/Home.module.css";
 
 export default function CakeReview({ cake }) {
+  
   return (
     <div className={styles.hot}>
       <Cake cake={cake} />
@@ -9,30 +11,39 @@ export default function CakeReview({ cake }) {
   );
 }
 export async function getStaticPaths() {
-  const response = await fetch("http://localhost:3000/api/cakes");
-  const data = await response.json();
-  const paths = data.map((cake) => {
+  let {db} = await connectToDatabase();
+  let data = await db
+        .collection('cakes')
+        .find({})
+        .toArray()
+    
+  const cakes = JSON.parse(JSON.stringify(data))
+  const paths = cakes.map((cake) => {
     return {
       params: { cakeId: cake.name },
     };
   });
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const response = await fetch("http://localhost:3000/api/cakes");
-  const data = await response.json();
-  const list = data.filter((cake) => cake.name === params.cakeId);
-  console.log(list[0]);
+  let {db} = await connectToDatabase();
+  let data = await db
+        .collection('cakes')
+        .findOne({name:params.cakeId})
+        
+    
+    const cake = JSON.parse(JSON.stringify(data))
 
   return {
     props: {
-      cake: list[0],
+      cake,
     },
+    revalidate:10,
   };
 }
 
