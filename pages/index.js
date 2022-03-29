@@ -1,27 +1,30 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import HotOffers from '../components/hotOffers'
-import About from '../components/about'
-import styles from '../styles/Home.module.css'
+
+import Link from "next/link";
+import About from "../components/about";
+import Slider from "../components/slider";
+
 
 export default function HomePage() {
-    
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>Cakes land Home Page</title>
-                <meta name="description" content="online cake shop" />
-            </Head>
-            <About />
-            <h1>...Hot offers...</h1>
-            <HotOffers />
-            
-            <br />
-            <Link href="/cakes"><a ><h2>Explore More Delicious Cakes</h2></a></Link>
-
-            
+  return (
+    <div className="flex flex-col bg-pink-500">
+      
+      <div>
+        <About />
+      </div>
+      <div className="flex flex-col items-center">
+        <div className="flex-initial w-1/2 h-1/2 py-4 " id="slider-div">
+          <Slider className="" />
         </div>
-    )
+
+        <div className="py-4 px-2 text-2xl text-white border-2 border-slate-300 rounded-lg hover:text-blue-700">
+          <Link href="/cakes">
+            <a>
+              <h2>Explore More Delicious Cakes</h2>
+            </a>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-HomePage.layout = "main";

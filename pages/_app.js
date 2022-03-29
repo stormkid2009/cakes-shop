@@ -1,14 +1,11 @@
 import '../styles/globals.css'
-import MainLayout from '../components/mainLayout'
-import ReviewLayout from '../components/reviewLayout'
+import Layout from '../components/layout'
 
-const layouts = {
-  main:MainLayout,
-  review:ReviewLayout
-}
+
+
 
 function MyApp({ Component, pageProps }) {
-  const Layout = layouts[Component.layout] || ((children)=> <>{children}</>)
+  
   return (
   <Layout>
     <Component {...pageProps} />
