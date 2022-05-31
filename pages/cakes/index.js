@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { connectToDatabase } from "../../util/mongodb";
 import Image from "next/image";
+import Layout from '../../components/layout'
 
-
+/*
 export async function getServerSideProps() {
   let { db } = await connectToDatabase();
   let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
@@ -14,9 +15,10 @@ export async function getServerSideProps() {
     },
   };
 }
-
+*/
 export default function CakesList({ cakes }) {
   return (
+    <Layout>
     <div className="flex flex-wrap justify-around py-4 bg-pink-500">
       {cakes.map((cake) => {
         return (
@@ -41,7 +43,7 @@ export default function CakesList({ cakes }) {
               </span>
             </div>
             <div className="w-l py-1 my-1 text-lg">
-              <button className="  border-2 border-slate-300 rounded-md hover:border-blue-300">
+              <button className="  border-2 border-slate-300 rounded-md px-2 hover:border-blue-300">
               <Link href={`/cakes/${cake.name}`}>
                 <a>View more  details</a>
               </Link>
@@ -52,7 +54,21 @@ export default function CakesList({ cakes }) {
         );
       })}
     </div>
+    </Layout>
   );
 }
 
 
+export async function getStaticProps(){
+  let { db } = await connectToDatabase();
+  let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
+  const cakes = JSON.parse(JSON.stringify(data));
+
+  return {
+    props: {
+      cakes,
+    },
+    revalidate:10,
+  };
+
+}

@@ -1,4 +1,4 @@
-//import styles from '../styles/About.module.css'
+
 import "tailwindcss/tailwind.css";
 import { FcEnteringHeavenAlive } from "react-icons/fc";
 

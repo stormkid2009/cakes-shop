@@ -2,10 +2,12 @@
 import Link from "next/link";
 import About from "../components/about";
 import Slider from "../components/slider";
+import Layout from "../components/layout"
 
 
 export default function HomePage() {
   return (
+    <Layout>
     <div className="flex flex-col bg-pink-500">
       
       <div>
@@ -25,6 +27,7 @@ export default function HomePage() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
 
