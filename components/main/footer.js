@@ -55,7 +55,7 @@ export default function Footer() {
                 Products
               </h6>
               <p className="mb-4">
-                <a href="#!" className="text-white">Cakes</a>
+                <a href="/cakes" className="text-white">Cakes</a>
               </p>
               <p className="mb-4">
                 <a href="#!" className="text-white">More</a>
