@@ -3,7 +3,7 @@ import { connectToDatabase } from "../../../util/mongodb";
 import axios from "axios";
 import { getSession,useSession } from "next-auth/react";
 import Image from "next/image";
-import Layout from "../../../components/layout"
+import Layout from "../../../components/main/layout"
 
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from "next/link";
-import About from "../components/about";
+import About from "../components/main/about";
 import Slider from "../components/slider";
-import Layout from "../components/layout";
+import Layout from "../components/main/layout";
 
 
 

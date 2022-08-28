@@ -1,9 +1,23 @@
-import React,{useContext} from 'react';
+
 import Link from "next/link";
 import { connectToDatabase } from "../../util/mongodb";
 import Image from "next/image";
-import Layout from '../../components/layout'
+import Layout from '../../components/main/layout'
 
+export async function getStaticProps(){
+  
+  let { db } = await connectToDatabase();
+  let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
+  const cakes = JSON.parse(JSON.stringify(data));
+  
+  return {
+    props: {
+      cakes,
+    },
+    revalidate:10,
+  };
+
+}
 
 
 export default function CakesList({cakes}) {
@@ -52,17 +66,3 @@ export default function CakesList({cakes}) {
 }
 
 
-export async function getStaticProps(){
-  
-  let { db } = await connectToDatabase();
-  let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
-  const cakes = JSON.parse(JSON.stringify(data));
-  
-  return {
-    props: {
-      cakes,
-    },
-    revalidate:10,
-  };
-
-}
