@@ -1,11 +1,16 @@
-
+import React from 'react';
 import Link from "next/link";
 import About from "../components/about";
 import Slider from "../components/slider";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+
+
+
 
 
 export default function HomePage() {
+  
+  
   return (
     <Layout>
     <div className="flex flex-col bg-pink-500">
@@ -21,7 +26,7 @@ export default function HomePage() {
         <div className="py-4 px-2 text-2xl text-white border-2 border-slate-300 rounded-lg hover:text-blue-700">
           <Link href="/cakes">
             <a>
-              <h2>Explore More Delicious Cakes</h2>
+              <button >Explore More Delicious Cakes</button>
             </a>
           </Link>
         </div>
@@ -30,4 +35,11 @@ export default function HomePage() {
     </Layout>
   );
 }
+
+
+
+
+
+
+
 

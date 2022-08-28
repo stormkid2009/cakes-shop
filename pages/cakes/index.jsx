@@ -1,25 +1,18 @@
+import React,{useContext} from 'react';
 import Link from "next/link";
 import { connectToDatabase } from "../../util/mongodb";
 import Image from "next/image";
 import Layout from '../../components/layout'
 
-/*
-export async function getServerSideProps() {
-  let { db } = await connectToDatabase();
-  let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
-  const cakes = JSON.parse(JSON.stringify(data));
 
-  return {
-    props: {
-      cakes,
-    },
-  };
-}
-*/
-export default function CakesList({ cakes }) {
+
+export default function CakesList({cakes}) {
+  
+
   return (
     <Layout>
     <div className="flex flex-wrap justify-around py-4 bg-pink-500">
+      
       {cakes.map((cake) => {
         return (
           <div key={cake._id} className=" text-center text-white">
@@ -60,10 +53,11 @@ export default function CakesList({ cakes }) {
 
 
 export async function getStaticProps(){
+  
   let { db } = await connectToDatabase();
   let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
   const cakes = JSON.parse(JSON.stringify(data));
-
+  
   return {
     props: {
       cakes,
