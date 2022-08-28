@@ -40,8 +40,18 @@ export default function Cart(){
 
   return(
     <Layout>
-    <h1>current user is  : {session.user.name}</h1>
-    {cart && cart.map((cake,index)=> <Item cake={cake} key={index}/>)}
+      <div className='text-white bg-purple-500'>
+        <div className='text-center pt-3 font-semibold'>
+        <h1>  Welcome back  {session.user.name}</h1>
+        {cart.length === 0 && <h1>Your Cart is Empty !!!</h1>}
+        </div>
+        <div>
+          
+        {cart && cart.map((cake,index)=> <Item cake={cake} key={index}/>)}
+        </div>
+    
+      </div>
+    
     </Layout>
     )
   

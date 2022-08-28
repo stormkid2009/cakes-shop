@@ -52,7 +52,7 @@ export default function CakeReview({ cake }) {
     }
   },[session])
   useEffect(()=>{
-    let isExist = cart.findIndex((item)=>item.cakeName === cake.name)
+    let isExist = cart.findIndex((item)=>item.name === cake.name)
     if(isExist === -1){
       setInCart(false)
     }else{
@@ -65,11 +65,11 @@ export default function CakeReview({ cake }) {
   const addToCartHandler = (e)=>{
     e.preventDefault();
     //make api call with axios to add current cake object to cart list
-    let isExist = cart.findIndex((item)=>item.cakeName === cake.name)
+    let isExist = cart.findIndex((item)=>item.name === cake.name)
     if(isExist === -1){
-      setCart([...cart,{cakeName:cake.name,quantity:1}])
+      setCart([...cart,{name:cake.name,quantity:1}])
       setInCart(true);
-      axios.put(url,{email:session.user.email,cart:[...cart,{cakeName:cake.name,quantity:1}]})
+      axios.put(url,{email:session.user.email,cart:[...cart,{name:cake.name,quantity:1}]})
     }
     
     
@@ -78,9 +78,9 @@ export default function CakeReview({ cake }) {
   const removeFromCartHandler=(e)=>{
     e.preventDefault();
     //make api call with axios to remove current cake object from cart list
-    let isExist = cart.findIndex((item)=>item.cakeName === cake.name)
+    let isExist = cart.findIndex((item)=>item.name === cake.name)
     if(isExist > -1){
-      const newCart = cart.filter((item)=> item.cakeName !== cake.name)
+      const newCart = cart.filter((item)=> item.name !== cake.name)
       setCart(newCart)
       setInCart(false)
       axios.put(url,{
@@ -112,7 +112,7 @@ export default function CakeReview({ cake }) {
         <div>
           
           <label>Price: </label>
-          <span>{cake.price} -L.E</span>
+          <span>{cake.price} -EGP</span>
         </div>
         <div className="p-3 m-3">
         {inCart ? <button className=" p-2 border-2 border-slate-300 rounded-md hover:border-blue-500"

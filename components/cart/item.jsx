@@ -6,7 +6,7 @@ export default function Item({ cake }) {
       <div>small image for cake will be here</div>
       
         <div>
-          <p>cake name : {cake.cakeName}</p>
+          <p>cake name : {cake.name}</p>
           <p className="p-4">Quantity: {cake.quantity}</p>
         </div>
 
