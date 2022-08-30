@@ -67,9 +67,9 @@ export default function CakeReview({ cake }) {
     //make api call with axios to add current cake object to cart list
     let isExist = cart.findIndex((item)=>item.name === cake.name)
     if(isExist === -1){
-      setCart([...cart,{name:cake.name,quantity:1}])
+      setCart([...cart,{name:cake.name,quantity:1,image:cake.image,price:cake.price}])
       setInCart(true);
-      axios.put(url,{email:session.user.email,cart:[...cart,{name:cake.name,quantity:1}]})
+      axios.put(url,{email:session.user.email,cart:[...cart,{name:cake.name,quantity:1,image:cake.image,price:cake.price}]})
     }
     
     
@@ -88,8 +88,6 @@ export default function CakeReview({ cake }) {
         cart:newCart
       })
     }
-    
-    
   }
   
   return (

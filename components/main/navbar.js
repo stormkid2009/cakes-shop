@@ -27,11 +27,16 @@ export default function Navbar() {
             <Link href="/"><a>Home</a></Link>
             </div>
             
-            <div className='flex justify-between p-4 hover:text-blue-500 '>
-                <button onClick={(e)=>{
+            <div className='flex justify-around p-2 m-2 hover:text-blue-500 '>
+                <div>
+                <button  onClick={(e)=>{
                     router.push('/cart')
-                }}><ImCart ></ImCart></button>
-                {cart && <div className='border rounded-full p-2'>{cart.length} </div>}
+                }}><ImCart size={42}></ImCart></button>
+                </div>
+                <div>
+                {cart && <div className='border rounded-full p-2 bg-slate-600 text-white'>{cart.length} </div>}
+                </div>
+                
             </div>
             <div className='py-2 hover:text-blue-500'>
             {!session && <Link href='/api/auth/signin' onClick={(e)=>{

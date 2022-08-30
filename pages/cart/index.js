@@ -19,7 +19,19 @@ export default function Cart(){
     }
   },[session])
   
-  
+  //adding remove from cart handler
+  const removeFromCartHandler=(nameFromChild)=>{
+    
+    let isExist = cart.findIndex((item)=>item.name === nameFromChild)
+    if(isExist > -1){
+      const newCart = cart.filter((item)=> item.name !== nameFromChild)
+      setCart(newCart)
+      axios.put(url,{
+        email:session.user.email,
+        cart:newCart
+      })
+    }
+  }
 
   if (status === "loading") {
     return <p>Loading...</p>
@@ -41,15 +53,17 @@ export default function Cart(){
   return(
     <Layout>
       <div className='text-white bg-purple-500'>
-        <div className='text-center pt-3 font-semibold'>
+        <div className='text-center pt-3 font-semibold text-2xl text-blue-800'>
         <h1>  Welcome back  {session.user.name}</h1>
         {cart.length === 0 && <h1>Your Cart is Empty !!!</h1>}
         </div>
         <div>
           
-        {cart && cart.map((cake,index)=> <Item cake={cake} key={index}/>)}
+        {cart && cart.map((cake,index)=> <Item cake={cake} key={index} handler={removeFromCartHandler}/>)}
         </div>
-    
+        <div className='text-center font-extrabold text-2xl p-4  text-blue-800'>
+          <h3>Total Amount : { cart && cart.map((item)=> item.price).reduce((acc,cur)=> {return acc + cur},0)}  EGP</h3>
+        </div>
       </div>
     
     </Layout>
