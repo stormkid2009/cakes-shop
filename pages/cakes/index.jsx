@@ -5,7 +5,7 @@ import Image from "next/image";
 import Layout from '../../components/main/layout'
 
 export async function getStaticProps(){
-  
+  //make api call to the database to get the array of cakes and send it as props to the page function
   let { db } = await connectToDatabase();
   let data = await db.collection("cakes").find({}).sort({ name: 1 }).toArray();
   const cakes = JSON.parse(JSON.stringify(data));
@@ -25,7 +25,7 @@ export default function CakesList({cakes}) {
 
   return (
     <Layout>
-    <div className="flex flex-wrap justify-around py-4 bg-pink-500">
+    <div className="flex flex-wrap justify-around py-4 ">
       
       {cakes.map((cake) => {
         return (

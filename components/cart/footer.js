@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="flex justify-around items-center">
         <div className="text-center p-6 ">
           <div className="m-2">
-          <span>© 2022 Copyright to </span>
-          <span className="hover:text-blue-700">CAKES LAND</span>
+          <span> Copyright © 2022 CAKES LAND</span>
+          
           </div>
           <div >
             <span className="p-2">
@@ -17,7 +17,7 @@ export default function Footer() {
             className="hover:text-blue-700"
             href="https://www.linkedin.com/in/anwar-ahmed-a6b3b1b1/"
           >
-               ANWAR AHMED
+               Anwar Ahmed
           </a>
           </div>
           

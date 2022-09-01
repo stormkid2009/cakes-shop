@@ -10,6 +10,7 @@ export default function Cart(){
   const [cart,setCart] = useState([])
   const url = "http://localhost:3000/api/users/user/cart"
 
+  //make api call to get the array of cart items we do use client side rendering with useEffect hook
   useEffect(async()=>{
     if(session){
       
@@ -19,7 +20,7 @@ export default function Cart(){
     }
   },[session])
   
-  //adding remove from cart handler
+  //adding remove from cart handler function passing the name of item from child component
   const removeFromCartHandler=(nameFromChild)=>{
     
     let isExist = cart.findIndex((item)=>item.name === nameFromChild)
@@ -33,9 +34,12 @@ export default function Cart(){
     }
   }
 
+  //if status of session is still loading we render this
   if (status === "loading") {
     return <p>Loading...</p>
   }
+
+  //if user is not authenticated we render this
   if (status === "unauthenticated") {
     return (
       <div className="flex flex-col items-center p-24 bg-red-500 text-white text-2xl">
@@ -50,6 +54,7 @@ export default function Cart(){
     )
   }
 
+  //if we have session data then we can render this
   return(
     <Layout>
       <div className='text-white bg-purple-500'>

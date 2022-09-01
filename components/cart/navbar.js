@@ -13,10 +13,7 @@ export default function Navbar() {
             <div className='py-2 hover:text-blue-500'>
             <Link href="/"><a>Home</a></Link>
             </div>
-            
-            
             <div className='py-2 hover:text-blue-500'>
-             
             <Link href='/cakes' ><a>Back to Cakes</a></Link>
             </div>
         </div>

@@ -4,13 +4,13 @@ import "tailwindcss/tailwind.css";
 export default function Footer() {
     return (
         
-        <footer className="text-center lg:text-left bg-pink-500 text-white">
+        <footer className="text-center lg:text-left bg-purple-700 text-white">
         <div className="flex justify-center items-center lg:justify-between p-6 border-b border-slate-100">
-          <div className="mr-12 hidden lg:block">
-            <span>Follow us on Social Media:</span>
+          <div className="mr-12 hidden lg:block text-orange-400 font-semibold text-2xl">
+            <span>Follow us on Social Media......</span>
           </div>
           <div className="flex justify-center">
-            <a href="#!" className="mr-6 text-blue-600">
+            <a href="#!" className="mr-6 text-orange-400 ">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                 className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512">
@@ -19,7 +19,7 @@ export default function Footer() {
                 </path>
               </svg>
             </a>
-            <a href="#!" className="mr-6 text-blue-600">
+            <a href="#!" className="mr-6 text-orange-400">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
                 className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="currentColor"
@@ -27,7 +27,7 @@ export default function Footer() {
                 </path>
               </svg>
             </a>
-            <a href="#!" className="mr-6 text-blue-600">
+            <a href="#!" className="mr-6 text-orange-300">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
                 className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                 <path fill="currentColor"
@@ -35,7 +35,7 @@ export default function Footer() {
                 </path>
               </svg>
             </a>
-            <a href="#!" className="mr-6 text-blue-600">
+            <a href="#!" className="mr-6 text-orange-300">
               <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                 className="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor"
@@ -111,8 +111,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-center p-6 bg-pink-500">
-          <span>© 2022 Copyright: </span>
+        <div className="text-center p-2">
+        <span>Copyright © 2022 CAKES LAND </span>
+        </div>
+        <div className="text-center p-2 ">
+          <span>
+            POWERED BY 
+          </span>
           <a className="text-white font-semibold" href="https://www.linkedin.com/in/anwar-ahmed-a6b3b1b1/">Anwar Ahmed</a>
         </div>
       </footer>

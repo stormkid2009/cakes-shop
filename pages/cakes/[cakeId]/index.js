@@ -1,7 +1,7 @@
 import React,{ useState, useEffect} from "react";
 import { connectToDatabase } from "../../../util/mongodb";
 import axios from "axios";
-import { getSession,useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Layout from "../../../components/main/layout"
 
@@ -45,12 +45,14 @@ export default function CakeReview({ cake }) {
   const url = 'http://localhost:3000/api/users/user/cart'
   const [inCart,setInCart] = useState(false);
   
+  //call api to get data from cart
   useEffect(async()=>{
     if(session){
       const response = await axios.post(url,{email:session.user.email})
       setCart(response.data)
     }
   },[session])
+  //make effect to check the status of cake inCart true or false to render the button label
   useEffect(()=>{
     let isExist = cart.findIndex((item)=>item.name === cake.name)
     if(isExist === -1){
@@ -59,9 +61,9 @@ export default function CakeReview({ cake }) {
       setInCart(true)
     }
   },[cart])
-  console.log(cart)
+  
     
-
+//handle function to add the current cake object to the cart array
   const addToCartHandler = (e)=>{
     e.preventDefault();
     //make api call with axios to add current cake object to cart list
@@ -75,6 +77,7 @@ export default function CakeReview({ cake }) {
     
     
   }
+  //handle function to remove current cake object from the cart array
   const removeFromCartHandler=(e)=>{
     e.preventDefault();
     //make api call with axios to remove current cake object from cart list

@@ -13,7 +13,7 @@ export default function HomePage() {
   
   return (
     <Layout>
-    <div className="flex flex-col bg-pink-500">
+    <div className="flex flex-col ">
       
       <div>
         <About />

@@ -1,7 +1,8 @@
 import "tailwindcss/tailwind.css";
 import Image from "next/image";
 
-
+//we pass from parent two params first 'cake' which represent cake object
+//and the other one is handler function
 export default function Item({ cake,handler }) {
   return (
     <div className="m-4 p-4 text-white flex justify-around bg-purple-500 border-2 rounded-lg border-white">
