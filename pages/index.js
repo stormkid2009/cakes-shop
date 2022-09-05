@@ -24,11 +24,13 @@ export default function HomePage() {
         </div>
 
         <div className="py-4 px-2 text-2xl text-white border-2 border-slate-300 rounded-lg hover:text-blue-700">
+          <button>
           <Link href="/cakes">
             <a>
-              <button >Explore More Delicious Cakes</button>
+              Explore More Delicious Cakes
             </a>
           </Link>
+          </button>
         </div>
       </div>
     </div>
