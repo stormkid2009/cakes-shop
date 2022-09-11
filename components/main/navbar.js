@@ -12,10 +12,19 @@ export default function Navbar() {
     const {data:session} = useSession();
     const router = useRouter();
     const [cart,setCart] = useState([])
+    const authUrl = 'http://localhost:3000/api/users'
     const url = 'http://localhost:3000/api/users/user/cart'
 
     useEffect(async()=>{
         if(session){
+            await axios.post(authUrl,{email:session.user.email})
+        }
+
+    },[session])
+
+    useEffect(async()=>{
+        if(session){
+            
           const response = await axios.post(url,{email:session.user.email})
           setCart(response.data)
         }

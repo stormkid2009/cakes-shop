@@ -1,3 +1,4 @@
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Navbar from "./navbar";
 import Footer from "./footer";

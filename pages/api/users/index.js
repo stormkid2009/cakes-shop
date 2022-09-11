@@ -37,7 +37,7 @@ const createNewUser=async(req,res)=>{
         if(isExist){
             return res.json({msg:`user with email: ${body.email} is already exist`})
         }
-        const user = await db.collection("users").insertOne(body);
+        const user = await db.collection("users").insertOne({email:body.email,cart:[]});
         res.status(201).json(user);
         
     } catch (error) {

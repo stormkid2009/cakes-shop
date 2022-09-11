@@ -1,6 +1,7 @@
 // pages/_app.js
 import { SessionProvider } from "next-auth/react";
 import React from 'react';
+import '../styles/globals.css';
 
 
 

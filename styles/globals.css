@@ -14,3 +14,11 @@
       opacity: 1;
     }
   }
+
+  html,
+  body,
+  body > div:first-child,
+  div#_next,
+  div#_next > div {
+    height: 100vh;
+  }

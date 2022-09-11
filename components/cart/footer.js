@@ -2,9 +2,9 @@ import "tailwindcss/tailwind.css";
 
 export default function Footer() {
   return (
-    <footer className="text-center font-semibold lg:text-left bg-purple-700 text-white">
+    <footer className="text-center font-semibold lg:text-left bg-purple-700 text-white border">
       <div className="flex justify-around items-center">
-        <div className="text-center p-6 ">
+        <div className="text-center p-4  ">
           <div className="m-2">
           <span> Copyright © 2022 CAKES LAND</span>
           
@@ -23,7 +23,7 @@ export default function Footer() {
           
           
         </div>
-        <div>
+        <div className="text-center p-4  ">
           <p className="flex items-center justify-center md:justify-start mb-4">
             <svg
               aria-hidden="true"
