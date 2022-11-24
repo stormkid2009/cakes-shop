@@ -1,5 +1,0 @@
-
-username:cakeshop
-password:3k6QzgojLkX3ozsz
-dbname:shopDB
-mongodb+srv://cakeshop:3k6QzgojLkX3ozsz@cluster0.mgiso.mongodb.net/shopDB?retryWrites=true&w=majority
